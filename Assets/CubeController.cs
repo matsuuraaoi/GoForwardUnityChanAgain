@@ -11,14 +11,19 @@ public class CubeController : MonoBehaviour {
 	private float deadLine = -10;
 
 	//課題
-	private GameObject unitychan;
-	private GameObject othercube;
-	private GameObject groundss;
+	//private GameObject unitychan;
+	//private GameObject othercube;
+	//private GameObject groundss;
+
+	AudioSource audioData;
 	// Use this for initialization
 	void Start () {
-		this.unitychan = GameObject.Find ("UnityChan2D");
-		this.othercube = GameObject.Find ("CubePrefab");
-		this.groundss = GameObject.Find ("ground");
+		//this.unitychan = GameObject.Find ("UnityChan2D");
+		//this.othercube = GameObject.Find ("CubePrefab");
+		//this.groundss = GameObject.Find ("ground");
+
+		audioData = GetComponent<AudioSource> ();
+
 	}
 	
 	// Update is called once per frame
@@ -32,12 +37,10 @@ public class CubeController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		if (other.gameObject == unitychan) {
-			GetComponent<AudioSource> ().volume = 0;
-		} else if (other.gameObject == othercube || other.gameObject == groundss) {
-			GetComponent<AudioSource> ().volume = 1;
+		if (other.gameObject.tag == "CUBE" || other.gameObject.tag == "GROUND") {
+			audioData.Play ();
 		} else {
-			GetComponent<AudioSource> ().volume = 0;
+			audioData.Stop();
 		}
 	}
 }

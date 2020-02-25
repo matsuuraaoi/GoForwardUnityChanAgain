@@ -42,13 +42,13 @@ public class UIController : MonoBehaviour {
 			//クリックされたらシーンをロードする
 			if (Input.GetMouseButtonDown (0)) {
 				//GameSceneを読み込む
-				SceneManager.LoadScene("gamePlaySpot");
+				SceneManager.LoadScene("GameScene");
 			}
 		}
 	}
 
 	public void GameOver() {
-		//ゲームオーバーになった時に、画面上にゲームオーバーをhっ幼児する
+		//ゲームオーバーになった時に、画面上にゲームオーバーを表示する
 		this.gameOverText.GetComponent<Text>().text = "GameOver";
 		this.isGameOver = true;
 	}

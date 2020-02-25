@@ -39,7 +39,6 @@ public class CubeGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		this.delta += Time.deltaTime;
-		//GetComponent<AudioSource> ().volume = 0;
 		//span秒以上の時間が経過したかを調べる
 		if (this.delta > this.span) {
 			this.delta = 0;
